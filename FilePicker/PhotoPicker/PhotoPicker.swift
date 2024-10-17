@@ -71,6 +71,7 @@ Nos permite que el usuario seleccione la fotografía deseada  (solo fotografías
  ````
  
  - Version: 1.0
+ - Requires: PhotosUI
  
  */
 struct PhotoPicker: UIViewControllerRepresentable {
