@@ -65,30 +65,36 @@ Nos permite mostrarle al usuario los archivos de su dispositivo (solo archivos .
  - Version: 1.0
  
  */
-struct DocumentPicker: UIViewControllerRepresentable {
+public struct DocumentPicker: UIViewControllerRepresentable {
     @Binding var isFilePickerPresented: Bool
     @Binding var documentData: Data?
     //@Binding var filePath: URL?
     
     @Binding var presentDocumentAlert: Bool
     
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+    public init(isFilePickerPresented: Binding<Bool>, documentData: Binding<Data?>, presentDocumentAlert: Binding<Bool>) {
+        self._isFilePickerPresented = isFilePickerPresented
+        self._documentData = documentData
+        self._presentDocumentAlert = presentDocumentAlert
+    }
+    
+    public func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf])
         controller.allowsMultipleSelection = false
         controller.delegate = context.coordinator
         return controller
     }
 
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    public func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     // Use a Coordinator to act as your UIDocumentPickerDelegate
-    class Coordinator: NSObject, UIDocumentPickerDelegate {
+    public class Coordinator: NSObject, UIDocumentPickerDelegate {
         
         private let parent: DocumentPicker
         
@@ -96,7 +102,7 @@ struct DocumentPicker: UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
             let filePath: URL?
             
             parent.isFilePickerPresented = false

@@ -74,7 +74,7 @@ Nos permite que el usuario seleccione la fotografía deseada  (solo fotografías
  - Requires: PhotosUI
  
  */
-struct PhotoPicker: UIViewControllerRepresentable {
+public struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var isPhotoPickerPresented: Bool
     @Binding var image: UIImage?
     //@Binding var data: Data?
@@ -88,7 +88,13 @@ struct PhotoPicker: UIViewControllerRepresentable {
     public var currentAssetIdentifier: String?
     */
     
-    func makeUIViewController(context: Context) -> PHPickerViewController {
+    public init(isPhotoPickerPresented: Binding<Bool>, image: Binding<UIImage?>, presentImageAlert: Binding<Bool>) {
+        self._isPhotoPickerPresented = isPhotoPickerPresented
+        self._image = image
+        self._presentImageAlert = presentImageAlert
+    }
+    
+    public func makeUIViewController(context: Context) -> PHPickerViewController {
         var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.selectionLimit = 1
         configuration.filter = .images
@@ -102,16 +108,16 @@ struct PhotoPicker: UIViewControllerRepresentable {
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    public func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
         
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     // Se usa un Coordinator para actuar como el PHPickerViewControllerDelegate
-    class Coordinator: PHPickerViewControllerDelegate {
+    public class Coordinator: PHPickerViewControllerDelegate {
         
         private let parent: PhotoPicker
         
@@ -119,7 +125,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
             self.parent = parent
         }
         
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             // Una vez seleccionado un elemento hay que despedir la hoja presentada
             parent.isPhotoPickerPresented = false
             

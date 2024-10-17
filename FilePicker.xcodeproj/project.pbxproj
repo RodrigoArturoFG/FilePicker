@@ -7,22 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EAC728F2CC17CCE0031D499 /* FilePickerManager in Frameworks */ = {isa = PBXBuildFile; productRef = 7EAC728E2CC17CCE0031D499 /* FilePickerManager */; };
 		7EC549342CC05637005EF090 /* FilePickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC549332CC05637005EF090 /* FilePickerApp.swift */; };
 		7EC549362CC05637005EF090 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC549352CC05637005EF090 /* ContentView.swift */; };
 		7EC549382CC05639005EF090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EC549372CC05639005EF090 /* Assets.xcassets */; };
 		7EC5493B2CC05639005EF090 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EC5493A2CC05639005EF090 /* Preview Assets.xcassets */; };
-		7EC549442CC056A2005EF090 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC549432CC056A2005EF090 /* PhotoPicker.swift */; };
-		7EC549462CC056AF005EF090 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC549452CC056AF005EF090 /* DocumentPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EAC728C2CC17BBF0031D499 /* FilePickerManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FilePickerManager; sourceTree = "<group>"; };
 		7EC549302CC05637005EF090 /* FilePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC549332CC05637005EF090 /* FilePickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerApp.swift; sourceTree = "<group>"; };
 		7EC549352CC05637005EF090 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7EC549372CC05639005EF090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EC5493A2CC05639005EF090 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7EC549432CC056A2005EF090 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
-		7EC549452CC056AF005EF090 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +28,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAC728F2CC17CCE0031D499 /* FilePickerManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EAC728D2CC17CCE0031D499 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7EC549272CC05637005EF090 = {
 			isa = PBXGroup;
 			children = (
+				7EAC728C2CC17BBF0031D499 /* FilePickerManager */,
 				7EC549322CC05637005EF090 /* FilePicker */,
 				7EC549312CC05637005EF090 /* Products */,
+				7EAC728D2CC17CCE0031D499 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +84,6 @@
 		7EC549412CC05669005EF090 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				7EC549432CC056A2005EF090 /* PhotoPicker.swift */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -84,7 +91,6 @@
 		7EC549422CC05672005EF090 /* DocumentPicker */ = {
 			isa = PBXGroup;
 			children = (
-				7EC549452CC056AF005EF090 /* DocumentPicker.swift */,
 			);
 			path = DocumentPicker;
 			sourceTree = "<group>";
@@ -105,6 +111,9 @@
 			dependencies = (
 			);
 			name = FilePicker;
+			packageProductDependencies = (
+				7EAC728E2CC17CCE0031D499 /* FilePickerManager */,
+			);
 			productName = FilePicker;
 			productReference = 7EC549302CC05637005EF090 /* FilePicker.app */;
 			productType = "com.apple.product-type.application";
@@ -159,10 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EC549462CC056AF005EF090 /* DocumentPicker.swift in Sources */,
 				7EC549362CC05637005EF090 /* ContentView.swift in Sources */,
 				7EC549342CC05637005EF090 /* FilePickerApp.swift in Sources */,
-				7EC549442CC056A2005EF090 /* PhotoPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +368,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7EAC728E2CC17CCE0031D499 /* FilePickerManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FilePickerManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EC549282CC05637005EF090 /* Project object */;
 }
